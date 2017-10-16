@@ -12,7 +12,6 @@ import javax.servlet.ServletException;
 public class ServletConfig implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        System.out.println("kargo card");
 //        EnumSet<DispatcherType> dispatcherTypes = EnumSet
 //                .allOf(DispatcherType.class);
 //        dispatcherTypes.add(DispatcherType.REQUEST);

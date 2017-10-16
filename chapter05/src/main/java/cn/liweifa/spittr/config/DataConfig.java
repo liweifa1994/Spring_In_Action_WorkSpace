@@ -20,7 +20,7 @@ public class DataConfig {
     public DataSource dataSource(){
         logger.info("开始加载 MySQL");
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/spittr?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE");
+        dataSource.setUrl("jdbc:mysql://localhost:3308/spittr?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE");
         dataSource.setUser("root");
         dataSource.setPassword("123456");
         logger.info(" MySQL 连接成功");

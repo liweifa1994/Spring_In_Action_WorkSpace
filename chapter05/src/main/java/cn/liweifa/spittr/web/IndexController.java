@@ -17,4 +17,6 @@ public class IndexController {
         logger.info("进入首页");
         return "home";
     }
+
+    
 }
