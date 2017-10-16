@@ -2,6 +2,9 @@ package cn.liweifa.spittr.web;
 
 import cn.liweifa.spittr.data.SpitterRepository;
 import cn.liweifa.spittr.pojo.Spitter;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/spitter")
 
 public class SpitterController {
-
+    private Logger logger = LoggerFactory.getLogger(SpitterController.class);
     @Autowired
     private SpitterRepository spitterRepository;
 
@@ -31,7 +34,11 @@ public class SpitterController {
     //注册用户时候处理的逻辑
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String processRegister( Spitter spitter){
-        spitterRepository.save(spitter);
+        try {
+            spitterRepository.save(spitter);
+        }catch (Exception e){
+            logger.error(ExceptionUtils.getMessage(e));
+        }
         return "redirect:/spitter/" + spitter.getUsername();
     }
 

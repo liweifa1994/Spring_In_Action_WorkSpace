@@ -18,7 +18,7 @@ public class JdbcSpitterRepository implements SpitterRepository {
     private JdbcOperations jdbcOperations;
     @Override
     public Spitter save(Spitter spitter) {
-        jdbcOperations.update("(`username`, `password`, first_name, last_name, `email`) VALUES (?,?,?,?)"
+        jdbcOperations.update(" insert into Spitter (`username`, `password`, first_name, last_name, `email`) VALUES (?,?,?,?,?)"
         ,spitter.getUsername(),spitter.getPassword(),spitter.getFirstName(),spitter.getLastName(),spitter.getEmail());
         return spitter;
     }
@@ -34,12 +34,12 @@ public class JdbcSpitterRepository implements SpitterRepository {
     private static class SpitterRowMapper implements RowMapper<Spitter> {
         public Spitter mapRow(ResultSet rs, int rowNum) throws SQLException {
             return new Spitter(
-                    rs.getLong("`id`"),
-                    rs.getString("`username`"),
+                    rs.getLong("id"),
+                    rs.getString("username"),
                     null,
                     rs.getString("first_name"),
                     rs.getString("last_name"),
-                    rs.getString("`email`"));
+                    rs.getString("email"));
         }
     }
 }
