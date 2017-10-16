@@ -1,0 +1,65 @@
+group 'cn.liweifa'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+apply plugin: 'com.bmuschko.tomcat-base'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.5'
+    }
+}
+dependencies {
+
+    def tomcatVersion = '7.0.59'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+
+}
+tomcat{
+    httpPort = 8090
+    httpsPort = 8091
+    enableSSL = true
+    contextPath = '/'
+    users {
+        user {
+            username = 'user1'
+            password = '123456'
+            roles = ['developers', 'admin']
+        }
+        user {
+            username = 'user2'
+            password = 'abcdef'
+            roles = ['manager']
+        }
+    }
+}
+dependencies {
+    compile group: 'org.springframework', name: 'spring-webmvc', version: "$springVersion"
+    compile "org.springframework:spring-jdbc:$springVersion"
+
+    compile "org.apache.commons:commons-lang3:$commonsLangVersion"
+    compile "org.thymeleaf:thymeleaf-spring4:$thymeleafVersion"
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: "$logbackVersion"
+    compile group: 'ch.qos.logback', name: 'logback-core', version: "$logbackVersion"
+    compile group: 'org.logback-extensions', name: 'logback-ext-spring', version: "$logbackSpringVersion"
+    compile group: 'org.slf4j', name: 'slf4j-api', version: "$sl4jVersion"
+    compile group: 'javax.validation', name: 'validation-api', version: "$javaValidation"
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: "$hibernateVersion"
+    compile group: 'mysql', name: 'mysql-connector-java', version: "$mysqlVersion"
+    providedCompile "javax.servlet:javax.servlet-api:$servletApiVersion"
+
+    testCompile "junit:junit-dep:$junitVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
+
+}
+

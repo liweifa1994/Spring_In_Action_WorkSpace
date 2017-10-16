@@ -1,2 +1,3 @@
 rootProject.name = 'Spring_In_Action_WorkSpace'
 include 'chapter05'
+include 'chapter07'

@@ -28,8 +28,20 @@ hs_err_pid*
 # IntelliJ project files
 .idea
 *.iml
-#out
-#gen
-#.gradle
-#logs
-#build
+out
+gen
+.gradle
+logs
+build
+.classpath
+.project
+.gradle/
+.settings/
+build/
+chapter05/.classpath
+chapter05/.project
+chapter05/.settings/
+chapter05/bin/
+chapter05/build/
+chapter05/logs/
+chapter07/src/

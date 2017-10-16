@@ -4,6 +4,10 @@ import cn.liweifa.spittr.config.RootConfig;
 import cn.liweifa.spittr.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+import java.io.File;
+
 /**
  * Created by josli on 17/10/16.
  */
@@ -22,5 +26,11 @@ public class WebInitlizer extends AbstractAnnotationConfigDispatcherServletIniti
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
-
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        File file = new File("/tmp/spittr/uploads");
+        if (!file.exists()) file.mkdir();
+        registration.setMultipartConfig(new MultipartConfigElement(file.getAbsolutePath()));
+        super.customizeRegistration(registration);
+    }
 }
