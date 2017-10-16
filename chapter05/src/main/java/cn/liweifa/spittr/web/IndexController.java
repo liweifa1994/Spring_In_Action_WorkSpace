@@ -2,19 +2,19 @@ package cn.liweifa.spittr.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by josli on 17/10/16.
  */
-@RestController
+@Controller//
 public class IndexController {
     private static Logger logger = LoggerFactory.getLogger(IndexController.class);
-    @RequestMapping("/hello")
-    public String helloWorld(){
-        logger.info("abcdef");
-        System.out.println("hello world");
-        return "helloWorld";
+    @RequestMapping(value = "/home",method = RequestMethod.GET)
+    public String home(){
+        logger.info("进入首页");
+        return "home";
     }
 }

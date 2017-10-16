@@ -1,6 +1,5 @@
 package cn.liweifa.spittr.data;
 
-import cn.liweifa.spittr.pojo.Spittle;
 
 import java.util.List;
 
