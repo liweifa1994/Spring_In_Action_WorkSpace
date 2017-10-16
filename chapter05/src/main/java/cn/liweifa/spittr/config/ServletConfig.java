@@ -21,8 +21,9 @@ public class ServletConfig implements WebApplicationInitializer {
 //        dispatcherTypes.add(DispatcherType.ERROR);
 //        FilterRegistration.Dynamic log4jServletFilter = servletContext.addFilter("log4jServletFilter",Log4jServletFilter.class.getName());
 //        log4jServletFilter.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
+        //添加系统参数 在这里指定 logback.xml文件的路径
         servletContext.setInitParameter("logbackConfigLocation","classpath:logback.xml");
-
+        //添加logback的监听器
         servletContext.addListener(LogbackConfigListener.class.getName());
     }
 }
