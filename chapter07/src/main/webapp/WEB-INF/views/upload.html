@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spitter</title>
+</head>
+<body>
+<!--<form method="POST"  enctype="multipart/form-data" th:action="@{/file/upload}">-->
+<form method="POST"  enctype="multipart/form-data" action="/file/upload">
+    <label>Profile Picture</label>:
+    <input type="file"
+           name="profilePicture"
+            /><br/>
+    <input type="submit" value="Register" />
+</form>
+</body>
+</html>
