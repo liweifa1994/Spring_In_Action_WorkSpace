@@ -26,7 +26,7 @@ public class MailServiceImpl implements MailService {
     @Override
     public void sendText(String text) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setFrom("rewards@dm.kargocard.com");
+        mailMessage.setFrom("2414270508@qq.com");
         mailMessage.setTo("2414270508@qq.com");
         mailMessage.setSubject("制卡程序出错了");
         mailMessage.setText("exception error 今天上午测试了 15");
@@ -43,7 +43,7 @@ public class MailServiceImpl implements MailService {
         try {
             //构造参数 第二个表明这是一个 multipart
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-            mimeMessageHelper.setFrom("rewards@dm.kargocard.com");
+            mimeMessageHelper.setFrom("2414270508@qq.com");
             mimeMessageHelper.setTo("2414270508@qq.com");
             mimeMessageHelper.setSubject("制卡程序出错了");
             mimeMessageHelper.setText("exception error 今天上午测试了 15");
@@ -61,12 +61,12 @@ public class MailServiceImpl implements MailService {
         try {
             //构造参数 第二个表明这是一个 multipart
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-            mimeMessageHelper.setFrom("rewards@dm.kargocard.com");
+            mimeMessageHelper.setFrom("2414270508@qq.com");
             mimeMessageHelper.setTo("2414270508@qq.com");
             mimeMessageHelper.setSubject("制卡程序出错了");
             Context context = new Context();
             context.setVariable("param1","hello world");
-            context.setVariable("param2","kargocard");
+            context.setVariable("param2","123123");
             String process = springTemplateEngine.process("index", context);
             mimeMessageHelper.setText(process,true);
             FileSystemResource fileSystemResource = new FileSystemResource("/Users/josli/002/CardMakingCP2Printer/build.xml");

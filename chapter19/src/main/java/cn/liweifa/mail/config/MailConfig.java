@@ -21,10 +21,9 @@ public class MailConfig {
     @Bean
     public JavaMailSender mailSender(){
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtpdm.aliyun.com");
-        mailSender.setUsername("rewards@dm.kargocard.com");
-        mailSender.setPassword("z0lkgjVrdEoRIO3Naflz");
-        System.out.println("hello world");
+        mailSender.setHost("2414270508@qq.com");
+        mailSender.setUsername("2414270508@qq.com");
+        mailSender.setPassword("2414270508@qq.com");
         return mailSender;
     }
 
