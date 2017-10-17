@@ -1,5 +1,4 @@
-group 'cn.liweifa'
-version '1.0-SNAPSHOT'
+
 
 apply plugin: 'war'
 apply plugin: 'com.bmuschko.tomcat'
